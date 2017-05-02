@@ -2,9 +2,9 @@
 // @name       Youtube Offliberate Button
 // @namespace  http://abs.ezw.me
 // @icon       http://offliberty.com/favicon.ico
-// @version    1.2
+// @version    1.2.1
 // @description  Places an "Offliberate" button next to the subscribe button under YouTube videos. The button redirects you to Offliberty.com, where the conversion is started automatically. Based on "Youtube MP3 Download Button" by Soulweaver.
-// @match         http*://www.youtube.com/*
+// @match         http*://www.youtube.com/watch*
 // @grant GM_addStyle
 // ==/UserScript==
 
