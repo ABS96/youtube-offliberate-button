@@ -1,3 +1,5 @@
+![Screenshot](http://i.imgur.com/O1CknFV.png)
+
 ## Synopsis
 
 Places an *Offliberate* button next to the *Share* button under YouTube videos. The button redirects you to Offliberty.com, where the conversion is started automatically.
