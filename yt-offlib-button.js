@@ -2,17 +2,13 @@
 // @name       Youtube Offliberate Button
 // @namespace  http://abs.ezw.me
 // @icon       http://offliberty.com/favicon.ico
-// @version    1.1
+// @version    1.2
 // @description  Places an "Offliberate" button next to the subscribe button under YouTube videos. The button redirects you to Offliberty.com, where the conversion is started automatically. Based on "Youtube MP3 Download Button" by Soulweaver.
 // @match         http*://www.youtube.com/*
-// @require       http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
-// @copyright  2014+, ABS
+// @grant GM_addStyle
 // ==/UserScript==
 
-/* Version history:
-1.1: - Changed favicon location to avert unsecure resource warning when connecting through HTTPS
-1.0: - Initial release
-*/
-
-        var linkPath ='http://offliberty.com/#'+encodeURIComponent(document.URL);
-        $(  '<a id="youtube2mp3" class="yt-uix-button yt-uix-button-default" target="_blank" href="'+linkPath+'" style="margin-left: 8px; height: 24px; padding: 0 4px; /* background-color: #e62117; */"><img src="https://static.e-junkie.com/sslpic/135251.c4bbae813bfe32b25ff9d428953b7e3f.gif" style="vertical-align:middle;color: white;"> <span class="yt-uix-button-content" style="line-height: 21px; /* font-variant: small-caps; */ font-size: 11px; /* color: #fefefe; */">Offliberate</span></a>').insertAfter( "#watch7-subscription-container" );   
+GM_addStyle('#offliberate-button:before {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAABJElEQVQ4y61VUW0DMQx9rgogEMJgYXAHYRAOwiB0DA5CoRyElEHG4IbA+5hT+dw4TaVG8o9jPznv2Q4xM7xDRBHADCCKqwDYmLm4Scz8YAAWSWbHCoClmWuAAoCtA2RtAxCagAKWncQvsdZd1qAasFfZLOZWWnFOQv4CYFLU3gB8O7T/yN1N+SbBQK1OC7CLqsGpsEhOktj702vHRFP+RS6unSevEnMxubG2iHXGAQ6DVKl9n2fVtJWCQkSz4W1tcJmYeSOig++MsfMxGIeTCGLHrTzJ+wWQiSgZf+6Jsnb6riXcP/9O2yRHxV2BWUHyfVIaSmvQoFQOTg9yXRbPRm8FEFVMajzzMHqjy6Fn7eXw9vX14oLN3oKlgS8gidU+y70v4A/T/Y3jGZ6RBAAAAABJRU5ErkJggg==) no-repeat; width:20px; height:20px;}');
+let linkPath ='http://offliberty.com/#'+encodeURIComponent(document.URL);
+console.log('Link path: ', linkPath);
+document.getElementsByClassName('action-panel-trigger-share')[0].insertAdjacentHTML('afterend', `<button id="offliberate-button" class="yt-uix-button yt-uix-button-size-default yt-uix-button-opacity yt-uix-button-has-icon no-icon-markup" title="Offliberate" target="_blank" onclick="window.open('${linkPath}');"><span class="yt-uix-button-content">Offliberate</span></button>`);
